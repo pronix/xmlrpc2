@@ -34,6 +34,7 @@ class HTTPTransport(BaseTransport):
     def __init__(self, session=None):
         if session is None:
             session = requests.session()
+            session.proxies = requests.compat.getproxies()
 
         self.session = session
 
